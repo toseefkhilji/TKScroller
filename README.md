@@ -17,30 +17,26 @@ The browser can also be used to allow the user to share image to social networki
 
 ## Usage ##
 
-1) Import `TKViewController.h` 
+1) Import `TKScroller.h` 
 
-2) Create Array of Images and alloc TKViewController 
+2) Choose Mode which You want from 
 
-      NSMutableArray *images = [NSMutableArray array];
-    [images addObject:[UIImage imageNamed:@"01.png"]];
-    [images addObject:[UIImage imageNamed:@"02.png"]];
-    TKViewController *galleryCtrl=[[TKViewController alloc]initWithImages:images];
-    [self.navigationController pushViewController:galleryCtrl animated:YES];
+    kScrollModeStatic,
+    kScrollModeImageLocal,
+    kScrollModeImageWeb,
+    kScrollModeViews,
+    kScrollModeTextDetail
 
-OR use NSUrls Object 
+3) Create Array of Images and alloc TKScroller 
 
-    NSMutableArray *images = [NSMutableArray array];
-    [images addObject:[NSURL URLWithString:@"http://i.imgur.com/NJTm5MI.jpg"]];
-    [images addObject:[NSURL URLWithString:@"http://i.imgur.com/LVNLuNe.jpg"]];
-    [images addObject:[NSURL URLWithString:@"http://i.imgur.com/SEZYqn7.jpg"]];
-     
-    TKViewController *galleryCtrl=[[TKViewController alloc]initWithUrls:images];
-    [self.navigationController pushViewController:galleryCtrl animated:YES];
+      TKScroller *scroller=[[TKScroller alloc]initWithFrame:CGRectMake(5, 5, 100, 100) array:[NSMutableArray arrayWithObjects:@"01.jpg",@"02.jpg",@"03.jpg",@"04.jpg",@"05.jpg",@"06.jpg",nil] mode:kScrollModeImageLocal];
+      
+      
+4) Add it to your view
 
-
-
+      [self.view addSubview:scroller ];
 
 License
 -------
 
-TKGallery is available under the MIT license. See the LICENSE file for more info.
+TKScroller is available under the MIT license. See the LICENSE file for more info.
